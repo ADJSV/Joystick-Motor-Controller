@@ -1,7 +1,8 @@
 # Joystick-Motor-Controller
-Controlling a step servo motor using a joytick from the TI Booster pack for the MSP430
-04/18/2022
-Note this is a reconstructed project. The code is lost so parts of it are missing such as the DEFINES and global variables
+Controlling a step servo motor using a joytick from the TI Booster pack for the MSP430  
+04/18/2022  
+Note this is a reconstructed project. The code is lost so parts of it are missing such as the DEFINES and global variables  
+Additional credits to Evan Cloutier, Alejandro Rodriguez and Caleb Butler
 # Problem Description
 So, a 2 kg mass must be lifted 1 m over 3 seconds with our motor (100 mm diameter):
 
@@ -22,12 +23,12 @@ https://www.digikey.com/en/products/detail/sanyo-denki-sanmotion-products/103H71
 # Project Description
 We interfaced these inputs through the boosterpack connector pins. We determined what pins to use through careful reading of the MKII hardware documentation and MSP430 hardware documentation.
 To interface the joystick with the MCU, we used:
- MY_JOYSTICK_BUTTON_PORT GPIO_PORT_P6
- MY_JOYSTICK_BUTTON_PIN     GPIO_PIN2
- MY_JOYSTICK_X_PORT               GPIO_PORT_P3
- MY_JOYSTICK_X_PIN                  GPIO_PIN3
- MY_JOYSTICK_Y_PORT              GPIO_PORT_P1
- MY_JOYSTICK_Y_PIN                 GPIO_PIN2
+ MY_JOYSTICK_BUTTON_PORT         GPIO_PORT_P6  
+ MY_JOYSTICK_BUTTON_PIN          GPIO_PIN2  
+ MY_JOYSTICK_X_PORT              GPIO_PORT_P3  
+ MY_JOYSTICK_X_PIN               GPIO_PIN3  
+ MY_JOYSTICK_Y_PORT              GPIO_PORT_P1  
+ MY_JOYSTICK_Y_PIN               GPIO_PIN2  
 
 To process all user input captured, we created a function called ‘processInputs’ that accepts one parameter and returns a certain motor mode. The various modes include: CW Fast, CW Slow, CCW Fast, CCW Slow, as well as STD Pattern Mode and DEBUG Pattern Mode.
 Depending on the input entered, the function determines the Y position of the joystick, then the X position, then the joystick pushbutton, and then finally the MKII pushbuttons are checked if they are pressed or not; this is all accomplished with a series of if/else statements. 
