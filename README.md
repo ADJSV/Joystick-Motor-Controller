@@ -1,8 +1,13 @@
 # Joystick-Motor-Controller
-Controlling a step servo motor using a joytick from the TI Booster pack for the MSP430  
+Controlling a step servo motor using a joytick from Texas Instruments (TI) MSP430FR5994 Launchpad with MKII Booster Pack  
 04/18/2022  
-Note this is a reconstructed project. The code is lost so parts of it are missing such as the DEFINES and global variables  
+Note The simulation code is complete and working.  
+The functional code is lost so parts of it are missing such as the DEFINES and global variables  for the functional code although there is a video included to show it works.  
 Additional credits to Evan Cloutier, Alejandro Rodriguez and Caleb Butler
+
+# Simulation Description
+ We designed a program that could emulate the 4 poles inside the rotor so we could simulate it and pass that information into the AD2 Logic Analyzer to see how the program behaved and if it indeed ressembled an stepper motor. We added the controls so that it had an interrupt and could use the push buttons  
+ 
 # Problem Description
 So, a 2 kg mass must be lifted 1 m over 3 seconds with our motor (100 mm diameter):
 
@@ -70,3 +75,4 @@ captureInputs: The function gets the inputs from both joystickX and JoystickY us
 
 processInputs: The function starts by setting the motor mode to off, and then creates an if-else statement. The if-else statement consists of choosing the inputs and its functions depending on the case. If the joystickY is HIGH, go clockwise fast, if LOW go clockwise slow. If joysticX is HIGH go counterclockwise fast, if LOW go counterclockwise slow. 
  If PBS1 pressed, go clockwise fast, if PBS2 is pressed go counterclockwise slow. If both PBS1 and PBS2 are pressed, or the joystick button is pressed, do pattern mode.
+
